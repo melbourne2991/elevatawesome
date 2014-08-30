@@ -1,0 +1,75 @@
+// Clearfix
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: " "; // 1
+    display: table; // 2
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.clearfix {
+  @include clearfix();
+}
+
+// Center Block Element
+
+@mixin margin-center {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.margin-center {
+  @include margin-center();
+}
+
+// Horizontal Menu
+
+@mixin horizontal-menu {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  li {
+    display: inline-block;
+  }
+}
+
+.horizontal-menu {
+  @include horizontal-menu();
+}
+
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.list-reset {
+  @include list-reset();
+}
+
+// Basics
+.align-center {
+  text-align: center;
+}
+
+@mixin color-button($color) {
+    background: $color;
+
+    // @if(i != 0) {
+    //   border-bottom: 4px darken($color, 10%) solid;
+    // }
+
+    &:hover {
+      // border-bottom: 4px darken($color, 5%) solid;
+    }
+}
