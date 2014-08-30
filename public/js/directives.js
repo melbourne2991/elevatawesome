@@ -71,17 +71,16 @@ directives.directive('elevatorPosition', [function() {
 		},
 		require: '^slider',
 		controller: function($scope, $element, $attrs) {
-			console.log($scope.elevatorPosition);
 
 		},
 		link: function(scope, element, attrs, ctrl) {
 			var height = $(element).height();
 			var fromBottom = scope.elevatorPosition;
 
-			console.log(scope.elevatorSpeed/1000);
-
-			$(element).css({
-				bottom: height * (scope.elevatorPosition-1)  + 'px',
+			scope.$watch('elevatorPosition', function(n) {
+				$(element).css({
+					bottom: height * (n-1)  + 'px',
+				});
 			});
 		}
 	}

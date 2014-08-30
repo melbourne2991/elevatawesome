@@ -66,6 +66,22 @@ label {
   border-radius: 5px;
   margin-bottom: 10px; }
 
+.button {
+  padding: 5px 10px;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer; }
+
+.button.green {
+  background: #74B90C;
+  color: #fff; }
+  .button.green:hover {
+    background: #65a10a; }
+
+.button.large {
+  padding: 20px 40px;
+  font-size: 1.3em; }
+
 * {
   box-sizing: border-box; }
 
@@ -1636,7 +1652,8 @@ label {
   border: 1px solid #FF5C5C;
   padding: 5px;
   border-radius: 5px;
-  cursor: pointer; }
+  cursor: pointer;
+  width: 100%; }
 
 .select-next-level {
   color: #FF5C5C;

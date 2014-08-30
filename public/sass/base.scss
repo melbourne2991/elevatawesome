@@ -10,8 +10,8 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
 	color: #FF5E57;
-
 }
+
 a {
 	color: #4892CC;
 	text-decoration: none;
@@ -42,4 +42,26 @@ label {
 	display: block;
 	border-radius: 5px;
 	margin-bottom: 10px;
+}
+
+.button {
+	padding: 5px 10px;
+	display: inline-block;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.button.green {
+	background: #74B90C;
+	color: #fff;
+
+	&:hover {
+		background: darken(#74B90C, 5%);
+	}
+
+}
+
+.button.large {
+	padding: 20px 40px;
+	font-size: 1.3em;
 }

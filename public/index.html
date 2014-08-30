@@ -27,11 +27,11 @@
 						<h3>Currently on Level {{ levelSelecting.id }}</h3>
 						<p>Select the level you wish to go to.</p>
 						<div class="input-block">
-							<label>People Waiting</label><input type="number" data-ng-model="levelSelecting.peopleWaiting">
+							<label>People Waiting</label><input type="number" data-ng-model="levelSelecting.people[0].quantity">
 						</div>
 						<ul class="reset-list">
 							<li data-ng-repeat="level in levels">
-								<div class="select-level level" data-ng-click="selectNextLevel(level)" data-ng-class="{true: 'selected' }[level.id==levelSelecting.nextLevelSelected.id]">Level {{ level.id }}</div>
+								<div class="select-level level" data-ng-click="selectNextLevel(level)" data-ng-class="{true: 'selected' }[level.id==levelSelecting.people[0].goingToLevel]">Level {{ level.id }}</div>
 							</li>
 						</ul>
 					</div>
@@ -46,7 +46,7 @@
 						<div class="col-md-3-24 col-18-24 people-waiting">
 							<div class="level waiting" data-ng-repeat="level in levels">
 								<div class="button" data-ng-click="openSelectNextLevel(level); $event.stopPropagation();">
-									<div class="waiing-count">{{ level.peopleWaiting }} waiting <span data-ng-if="level.nextLevelSelected">- to level {{ level.nextLevelSelected.id }}</span></div>
+									<div class="waiing-count">{{ level.people[0].quantity || '0' }} waiting <span data-ng-if="level.people[0].goingToLevel">- to level {{ level.people[0].goingToLevel }}</span></div>
 									<div class="select-next-level">Select Next Level</div>
 								</div>
 							</div>
@@ -62,8 +62,8 @@
 											</div>
 
 											<div class="elevator">
-												<div class="elevator-position" data-elevator-position="elevator.currentLevel" data-elevator-speed="elevator.speed">
-
+												<div class="elevator-position" data-elevator-position="elevator.currentLevelId" data-elevator-speed="elevator.speed">
+													{{ elevator.totalBoardCount }}
 												</div>
 
 												<div class="level" data-ng-repeat="level in levels">
@@ -76,6 +76,10 @@
 							</div>
 						</div>
 					</div>
+				</div>
+
+				<div class="align-center">
+					<div class="green button large">Start the Elevators!</div>
 				</div>
 			</div>
 		</div>

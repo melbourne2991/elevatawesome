@@ -6,9 +6,10 @@ controllers.controller('MainController', [
 	'Building',
 
 	function($scope, $timeout, Building) {
-		var building = new Building(13, 4);
+		// Building takes two parameters, number of levels & number of elevators
+		var building = new Building(10, 4);
 
-		building.elevators[0].currentLevel = 5;
+		building.init();
 
 		$scope.elevators = building.elevators;
 		$scope.levels = building.levels.reverse();
@@ -32,10 +33,10 @@ controllers.controller('MainController', [
 		$scope.hideLevelSelect = function() {
 			if($scope.showLevelSelect)
 				$scope.showLevelSelect = false;
-		}
+		};
 
 		$scope.selectNextLevel = function(level) {
-			$scope.levelSelecting.nextLevelSelected = level;
+			$scope.levelSelecting.people[0].goingToLevel = level.id;
 			$scope.showLevelSelect = false;
-		}
+		};
 	}]);
