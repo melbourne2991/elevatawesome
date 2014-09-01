@@ -3,7 +3,7 @@ var services = angular.module('app.services', []);
 services.factory('Elevator', ['$timeout', function($timeout) {
 	var Elevator = function(id, building) {
 		this.id = id;
-		this.currentLevelId = 1;																	
+		this.currentLevelId = _.random(1, 10); // Elevator start level - set to random															
 		this.people = [];
 		this.speed = 3000;
 		this.building = building;
