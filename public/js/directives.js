@@ -6,16 +6,14 @@ directives.directive('levelSelector', ['Person', function(Person) {
 		link: function(scope, element) {
 			scope.newQuantity; 
 			scope.$watch('levelSelecting', function(n, o) {
-				if(n && o !== n)
+				if(n)
 					scope.newQuantity = _.clone(scope.levelSelecting.people.length);
 			});
 
 			var updatePeople = function(going_to_level) {
-				var newPeople = _.map(_.range(scope.newQuantity), function() {
+				scope.levelSelecting.people = _.map(_.range(scope.newQuantity), function() {
 					return new Person(going_to_level);
 				});
-
-				scope.levelSelecting.people = newPeople;
 			};
 
 			scope.selectNextLevel = function(level) {

@@ -1613,6 +1613,9 @@ label {
 .slider-container {
   overflow: hidden; }
 
+.slider {
+  transition: margin .3s; }
+
 .level {
   padding: 20px 10px;
   height: 50px;
@@ -1648,11 +1651,21 @@ label {
   background: rgba(255, 94, 87, 0.5);
   position: absolute;
   bottom: 0;
-  width: 100%; }
+  width: 100%;
+  transition: bottom .3s; }
   .elevator-position .onboard-count {
     line-height: 50px;
     text-align: center;
-    font-size: 1.3em; }
+    font-size: 1.3em;
+    background-size: 30px;
+    padding-top: 7px; }
+    .elevator-position .onboard-count img {
+      position: relative;
+      top: 2px;
+      width: 20px; }
+  @media (min-width: 768px) {
+    .elevator-position .onboard-count {
+      padding-top: 0; } }
 
 .select-level {
   text-align: left;
