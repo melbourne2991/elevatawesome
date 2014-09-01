@@ -1,0 +1,13 @@
+<div class="align-center">
+	<div class="circle-button show-768"><span>{{ elevator.id }}</span></div>
+</div>
+
+<div class="elevator">
+	<div class="elevator-position" data-elevator-position="elevator.currentLevelId" data-elevator-speed="elevator.speed">
+		{{ elevator.totalBoardCount }}
+	</div>
+
+	<div class="level" data-ng-repeat="level in levels">
+		<div class="level-id">Level {{ level.id }}</div>
+	</div>
+</div>

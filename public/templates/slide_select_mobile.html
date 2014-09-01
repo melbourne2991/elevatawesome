@@ -1,0 +1,8 @@
+<div id="elevator-select" data-ng-slide-select="">
+	<div class="circle-button hide-768" 
+		data-ng-repeat="elevator in elevators" 
+		data-ng-click="selectSlide(elevator.id)"
+		data-ng-class="{ true: 'active' }[elevator.id==currentSlide]">
+		<span>{{ elevator.id }}</span>
+	</div>
+</div>

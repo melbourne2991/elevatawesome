@@ -1,0 +1,21 @@
+<div class="slider-container">
+<div class="slider">
+	<div class="row">
+		<div class="col-md-6-24" data-ng-repeat="elevator in elevators" data-slider-item="">
+			<div class="align-center">
+				<div class="circle-button show-768"><span>{{ elevator.id }}</span></div>
+			</div>
+
+			<div class="elevator">
+				<div class="elevator-position" data-elevator-position="elevator.currentLevelId" data-elevator-speed="elevator.speed">
+				<div class="onboard-count">{{ elevator.people.length }}</div>
+				</div>
+
+				<div class="level" data-ng-repeat="level in elevator.levels">
+					<div class="level-id">Level {{ level.id }}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>

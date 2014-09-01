@@ -1,0 +1,10 @@
+<h3>Currently on Level {{ levelSelecting.id }}</h3>
+<p>Select the level you wish to go to.</p>
+<div class="input-block">
+	<label>People Waiting</label><input type="number" data-ng-model="newQuantity">
+</div>
+<ul class="reset-list">
+	<li data-ng-repeat="level in levels">
+		<div class="select-level level" data-ng-click="selectNextLevel(level)" data-ng-class="{true: 'selected' }[level.id==levelSelecting.people[0].goingToLevel]">Level {{ level.id }}</div>
+	</li>
+</ul>

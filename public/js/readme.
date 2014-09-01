@@ -1,0 +1,2 @@
+If elevator is unoccupied goes to closest level with people on it.
+If elevator is occupied, it will go to level 

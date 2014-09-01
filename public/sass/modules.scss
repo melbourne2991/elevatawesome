@@ -100,7 +100,7 @@ body {
 	&:last-child {
 		margin-right: 0;
 	}
-	&:hover {
+	&:hover, &.active {
 		background: #5CB1FF;
 	}
 	span {
@@ -187,6 +187,7 @@ body {
 	border-radius: 5px;
 	cursor: pointer;
 	width: 100%;
+	font-size: 0.9em;
 }
 
 .select-next-level {
@@ -197,11 +198,16 @@ body {
 
 .elevator-position {
 	height: 50px;
-	background:#FF5C5C;
-	opacity: 0.5;
+	background:rgba(255, 94, 87, 0.5);
 	position: absolute;
 	bottom: 0;
 	width: 100%;
+
+	.onboard-count {
+		line-height: 50px;
+		text-align: center;
+		font-size: 1.3em;
+	}
 }
 
 .select-level {

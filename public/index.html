@@ -1,14 +1,13 @@
 <!doctype html>
 <html data-ng-app="app">
 	<head>
-		<title>William Leach - AngularJS - Node - Javascript!</title>
+		<title>Elevatawesome - The Elevator Challenge</title>
 
 		<meta name="viewport" content="width=device-width, user-scalable=no">
 
-		<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'> -->
-		<link rel="stylesheet" href="css/animate.css">
 		<link rel="stylesheet" href="css/app.css">
 
+		<!--// Dependencies //-->
 		<script src="bower_components/jquery/dist/jquery.js"></script>
 		<script src="bower_components/lodash/dist/lodash.js"></script>
 		<script src="bower_components/angular/angular.js"></script>
@@ -24,66 +23,36 @@
 			<div id="layout-inner" data-ng-class="{ popout: showLevelSelect }" data-ng-click="hideLevelSelect()">
 				<div id="sidebar" data-ng-click="$event.stopPropagation();">
 					<div class="container">
-						<h3>Currently on Level {{ levelSelecting.id }}</h3>
-						<p>Select the level you wish to go to.</p>
-						<div class="input-block">
-							<label>People Waiting</label><input type="number" data-ng-model="levelSelecting.people[0].quantity">
-						</div>
-						<ul class="reset-list">
-							<li data-ng-repeat="level in levels">
-								<div class="select-level level" data-ng-click="selectNextLevel(level)" data-ng-class="{true: 'selected' }[level.id==levelSelecting.people[0].goingToLevel]">Level {{ level.id }}</div>
-							</li>
-						</ul>
+						<div data-level-selector=""></div>
 					</div>
 				</div>
 
-				<div id="elevator-select">
-					<div class="circle-button hide-768" data-ng-repeat="elevator in elevators"><span>{{ elevator.id }}</span></div>
-				</div>
+				<div data-slide-selector=""></div>
 
 				<div id="elevators" class="container">
 					<div class="row">
-						<div class="col-md-3-24 col-18-24 people-waiting">
+						<div class="col-xl-6-24 col-lg-6-24 col-md-10-24 col-18-24 people-waiting">
 							<div class="level waiting" data-ng-repeat="level in levels">
 								<div class="button" data-ng-click="openSelectNextLevel(level); $event.stopPropagation();">
-									<div class="waiing-count">{{ level.people[0].quantity || '0' }} waiting <span data-ng-if="level.people[0].goingToLevel">- to level {{ level.people[0].goingToLevel }}</span></div>
+									<div class="waitng-count">{{ level.people.length || '0' }} waiting <span data-ng-if="level.people[0].goingToLevel">- to level {{ level.people[0].goingToLevel }}</span></div>
 									<div class="select-next-level">Select Next Level</div>
 								</div>
 							</div>
 						</div>
 
-						<div class="col-md-21-24 col-6-24">
-							<div class="slider-container">
-								<div class="slider" data-slider="">
-									<div class="row">
-										<div class="col-md-6-24" data-ng-repeat="elevator in elevators" data-slider-item="">
-											<div class="align-center">
-												<div class="circle-button show-768"><span>{{ elevator.id }}</span></div>
-											</div>
-
-											<div class="elevator">
-												<div class="elevator-position" data-elevator-position="elevator.currentLevelId" data-elevator-speed="elevator.speed">
-													{{ elevator.totalBoardCount }}
-												</div>
-
-												<div class="level" data-ng-repeat="level in levels">
-													<div class="level-id">Level {{ level.id }}</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+						<div class="col-xl-18-24 col-lg-18-24 col-md-14-24 col-6-24">
+							<div data-slider="" data-elevators="elevators" data-current-slide="currentSlide"></div>
 						</div>
 					</div>
 				</div>
 
 				<div class="align-center">
-					<div class="green button large">Start the Elevators!</div>
+					<div class="green button large" data-ng-click="startElevators()">Start the Elevators!</div>
 				</div>
 			</div>
 		</div>
 
+		<!--// App //-->
 		<script src="js/app.js"></script>
 		<script src="js/directives.js"></script>	
 		<script src="js/services.js"></script>
